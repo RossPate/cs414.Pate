@@ -1,0 +1,82 @@
+***** I used AI to convert these parse trees to ASCII for visual effect *****
+(a + (b * C) / 2)
+------------------
+Factor
+└── (
+    Expr
+    ├── Expr
+    │   └── Term
+    │       └── Factor
+    │           └── a
+    ├── +
+    └── Term
+        ├── Term
+        │   ├── Factor
+        │   │   └── (
+        │   │       Expr
+        │   │       ├── Term
+        │   │       │   ├── Term
+        │   │       │   │   └── Factor
+        │   │       │   │       └── b
+        │   │       │   ├── *
+        │   │       │   └── Factor
+        │   │       │       └── C
+        │   │       └── )
+        ├── /
+        └── Factor
+            └── 2
+└── )
+------------------
+a * (3 + b) * 4
+------------------
+Expr
+└── Term
+    ├── Term
+    │   ├── Term
+    │   │   ├── Factor
+    │   │   │   └── a
+    │   │   ├── *
+    │   │   └── Factor
+    │   │       └── (
+    │   │           Expr
+    │   │           ├── Term
+    │   │           │   └── Factor
+    │   │           │       └── 3
+    │   │           ├── +
+    │   │           └── Term
+    │   │               └── Factor
+    │   │                   └── b
+    │   │           )
+    ├── *
+    └── Factor
+        └── 4
+------------------
+42 * c + 3 * (a + b)
+------------------
+Expr
+├── Expr
+│   └── Term
+│       ├── Term
+│       │   ├── Factor
+│       │   │   └── 42
+│       │   ├── *
+│       │   └── Factor
+│       │       └── c
+├── +
+└── Term
+    ├── Term
+    │   ├── Factor
+    │   │   └── 3
+    │   ├── *
+    │   └── Factor
+    │       └── (
+    │           Expr
+    │           ├── Term
+    │           │   └── Factor
+    │           │       └── a
+    │           ├── +
+    │           └── Term
+    │               └── Factor
+    │                   └── b
+    └── )
+------------------

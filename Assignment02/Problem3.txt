@@ -1,0 +1,54 @@
+**** AI Was Used To Convert Parse Tree To ASCII Format ****
+Extended Grammar With Unary Operators:
+Expr    → Expr + Term
+        | Expr - Term
+        | Term
+
+Term    → Term * Factor
+        | Term / Factor
+        | Factor
+
+Factor  → Unary
+
+Unary   → + Unary
+        | - Unary
+        | Primary
+
+Primary → ( Expr )
+        | number
+        | identifier
+
+
+Parse Tree for:
+(3 + -3) * 4
+---------------
+Expr
+└── Term
+    ├── Term
+    │   └── Factor
+    │       └── Unary
+    │           └── Primary
+    │               └── ( Expr )
+    │                   └── Expr
+    │                       ├── Expr
+    │                       │   └── Term
+    │                       │       └── Factor
+    │                       │           └── Unary
+    │                       │               └── Primary
+    │                       │                   └── number
+    │                       │                       └── 3
+    │                       ├── +
+    │                       └── Term
+    │                           └── Factor
+    │                               └── Unary
+    │                                   ├── -
+    │                                   └── Unary
+    │                                       └── Primary
+    │                                           └── number
+    │                                               └── 3
+    ├── *
+    └── Factor
+        └── Unary
+            └── Primary
+                └── number
+                    └── 4
