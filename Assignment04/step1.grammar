@@ -1,0 +1,26 @@
+(* Start symbol *)
+<command> ::= <ls-command> 
+            | <cd-command> 
+            | <cat-command> 
+            | <print-command> 
+            | <exec-command>
+
+(* Command definitions *)
+<ls-command> ::= "ls" [<folder-path>]
+<cd-command> ::= "cd" [<folder-path>]
+<cat-command> ::= "cat" <filename>
+<print-command> ::= "print" <filename>
+<exec-command> ::= "exec" <filename>
+
+(* Folder path and name *)
+<folder-path> ::= <folder-name> { "\\" <folder-name> }
+<folder-name> ::= <letter> { <letter> } (* max 8 letters *)
+
+(* Filename in DOS 8.3 format *)
+<filename> ::= <name-part> "." <ext-part>
+<name-part> ::= <letter> { <letter> } (*  8 letters *)
+<ext-part> ::= <letter> { <letter> }   (*  3 letters *)
+
+(* Token definitions *)
+<letter> ::= "A" | "B" | "C" | ... | "Z" 
+           | "a" | "b" | "c" | ... | "z"
